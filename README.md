@@ -22,5 +22,18 @@ The backend can now be started like this:
 $ docker run -it --rm --name pyback --network skynet -p 5000:5000 -v $(pwd)/python_backend/server.py:/var/fullstack/server.py -v $(pwd)/frontend/:/var/fullstack/frontend/ -t python_backend python /var/fullstack/server.py
 ```
 
+## Integrating with Google sign-in
+The app has Google sign-in integration for authentication and will allow you to log in using your Google user ID.
+
+>**NOTE** The Google client-ID used in the lecture has been removed so uou need to generate and add your own for sign-in to work. If you don't you'll get an authorization error when trying to sign in.
+
+Follow these steps to get Google sign-in to work:
+- Create your App and credentials following this guide: https://developers.google.com/identity/sign-in/web/sign-in. You may need to create a project before you can do so and you need to be registered for a Google developer profile.
+- Once you have your credentials, add them to the source code:
+  - Update the HTML here: https://github.com/hioa-cs/data2410_fullstack_example/blob/9fc8f07630ffad2644a76db3f45dbd1c15e03ba6/frontend/index.html#L9
+  - Update the backend here: https://github.com/hioa-cs/data2410_fullstack_example/blob/9fc8f07630ffad2644a76db3f45dbd1c15e03ba6/python_backend/server.py#L16
+- Add your own Gihtub account(s) to the MySQL table here, replacing Alfred / Derek: https://github.com/hioa-cs/data2410_fullstack_example/blob/master/sql/my_database.sql#L23
+- Play around with different access levels - levels 10 and 100 should load different "secrets". 
+
 ## Running with docker compose
 TODO
